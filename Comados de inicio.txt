@@ -1,0 +1,52 @@
+version: "3"
+
+services:
+  mc.kairoscraft.net:
+    image: minecraftservers/minecraft-server
+    ports:
+      - 25565:25565
+    environment:
+      EULA: "TRUE"
+    tty: true
+    stdin_open: true
+    restart: unless-stopped
+    volumes:
+      # attach a directory relative to the directory containing this compose file
+      - ./minecraft-data:/data
+
+******************
+docker run -d -it --name mc-new -v 
+mc:/data 
+-p 25565:25565 
+-e EULA=TRUE 
+-e MEMORY=2G 
+minecraftservers/minecraft-server
+
+**********
+
+Ejecutar script docker-compose.yaml
+https://dockertips.com/utilizando-docker-compose
+docker-compose -v
+docker-compose version 1.26.0, build d4451659
+
+
+docker exec -i mc.kairoscraft.net rcon-cli
+************
+Algunas consideraciones:
+
+docker-compose up: da instrucciones a Docker para crear el contendor y ejecutarlo.
+
+docker-compose down: apaga todo los servicios que levantó con docker-compose up.
+
+docker-compose ps: permite ver los contenedores funcionando.
+
+docker-compose exec: permite ejecutar un comando a uno de los servicios levantados de Docker-compose.
+
+***************
+https://code.visualstudio.com/docs/getstarted/introvideos
+https://code.visualstudio.com/docs/introvideos/extend
+***************
+ver VIDEO
+*************
+https://www.youtube.com/watch?v=qdec2M4NwT0
+https://www.youtube.com/watch?v=qdec2M4NwT0
